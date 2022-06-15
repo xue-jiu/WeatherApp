@@ -1,0 +1,214 @@
+﻿<Window
+    x:Class="WeatherApp.Views.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ext="clr-namespace:WeatherApp.Extensions"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    Title="{Binding Title}"
+    Width="1050"
+    Height="685"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    AllowsTransparency="True"
+    Background="Transparent"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="50" />
+    </WindowChrome.WindowChrome>
+    <Window.Resources>
+        <Style x:Key="buttonTry" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <TextBlock Text="{TemplateBinding Content}" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="260" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border
+            Grid.Column="0"
+            Background="#ffffff"
+            CornerRadius="30 0 0 30">
+            <StackPanel>
+                <Border
+                    Width="200"
+                    Margin="0,30,0,0"
+                    HorizontalAlignment="Center"
+                    BorderBrush="#d9d9d9"
+                    BorderThickness="1"
+                    CornerRadius="15">
+                    <TextBlock
+                        HorizontalAlignment="Center"
+                        FontSize="25"
+                        Text="未完待续~" />
+                </Border>
+                <!--  图片  -->
+                <!--<Image
+                    Width="200"
+                    Margin="0,10,0,10"
+                    Source="/Images/weather.png" />-->
+                <Button
+                    Margin="10"
+                    Width="220"
+                    Height="220"
+                    Background="Transparent"
+                    Command="{Binding OpenLoginDialogCommand}"
+                    Style="{StaticResource MaterialDesignIconForegroundButton}"
+                        Cursor="Hand">
+                    <materialDesign:PackIcon
+                        Width="220"
+                        Height="220"
+                        HorizontalAlignment="Center"
+                        Kind="Github" />
+                </Button>
+                <TextBlock
+                    Margin="30,0,30,0"
+                    FontSize="30"
+                    FontWeight="SemiBold"
+                    Text="{Binding TeacherId}" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock
+                        Margin="20,0,0,0"
+                        FontSize="22"
+                        FontWeight="SemiBold"
+                        Text="Monday" />
+                    <TextBlock
+                        Margin="20,0,20,0"
+                        FontSize="22"
+                        FontWeight="SemiBold"
+                        Text="{Binding NowTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+                <Separator
+                    Margin="20"
+                    BorderBrush="Black"
+                    BorderThickness="1" />
+                <StackPanel Margin="20,10,0,0" Orientation="Horizontal">
+                    <TextBlock
+                        Margin="30,0,10,0"
+                        FontFamily="/Fonts/#iconfont"
+                        FontSize="20"
+                        Text="&#xe6d2;" />
+                    <TextBlock
+                        VerticalAlignment="Bottom"
+                        FontSize="18"
+                        Text="Mostly Cloudy" />
+                </StackPanel>
+
+                <StackPanel Margin="20,10,0,0" Orientation="Horizontal">
+                    <TextBlock
+                        Margin="30,0,10,0"
+                        FontFamily="/Fonts/#iconfont"
+                        FontSize="20"
+                        Text="&#xe6b0;" />
+                    <TextBlock
+                        VerticalAlignment="Bottom"
+                        FontSize="18"
+                        Text="Hap" />
+                </StackPanel>
+                
+                <Border
+                    Height="100"
+                    Margin="30,50"
+                    BorderBrush="#03a9f4"
+                    CornerRadius="20">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/grass.png" Stretch="UniformToFill" />
+                    </Border.Background>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" />
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <Border
+            Grid.Column="1"
+            Background="#f6f6f6"
+            CornerRadius="0 30 30 0">
+            <!--  标题排  -->
+            <DockPanel>
+                <Grid Margin="40,30,40,10" DockPanel.Dock="top">
+                    <StackPanel
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Button
+                            VerticalAlignment="Center"
+                            Command="{Binding NavigaCommand}"
+                            CommandParameter="StudentData"
+                            Content="TODAT"
+                            IsEnabled="{Binding ButtonIsEable}"
+                            Style="{StaticResource RegionButton}"
+                            ToolTip="登录后可用"
+                            WindowChrome.IsHitTestVisibleInChrome="True" />
+                        <Button
+                            Margin="15,0,0,0"
+                            VerticalAlignment="Center"
+                            Command="{Binding NavigaCommand}"
+                            CommandParameter="Index"
+                            Content="WEEK"
+                            Style="{StaticResource RegionButton}"
+                            WindowChrome.IsHitTestVisibleInChrome="True" />
+                        <Button
+                            Width="40"
+                            Height="40"
+                            Margin="30,0,0,0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Command="{Binding GobackCommand}"
+                            Cursor="Hand"
+                            FontSize="20"
+                            Style="{StaticResource JournalButton}"
+                            Tag="&#xe68c;" />
+                        <Button
+                            Width="40"
+                            Height="40"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Command="{Binding GofowordCommand}"
+                            Cursor="Hand"
+                            FontSize="20"
+                            Style="{StaticResource JournalButton}"
+                            Tag="&#xe689;" />
+                    </StackPanel>
+                    <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                        <Button
+                            Background="#1a1a1a"
+                            Click="Min_Click"
+                            Content="c"
+                            Foreground="#ffffff"
+                            Style="{StaticResource button}"
+                            WindowChrome.IsHitTestVisibleInChrome="True" />
+                        <Button
+                            Click="Close_Click"
+                            Content="f"
+                            Style="{StaticResource button}"
+                            WindowChrome.IsHitTestVisibleInChrome="True" />
+                    </StackPanel>
+                </Grid>
+                <!--  分割线  -->
+                <Separator Margin="20,0,20,0" DockPanel.Dock="Top" />
+                <!--  日期标注  -->
+                <ContentControl prism:RegionManager.RegionName="{x:Static ext:PrismManger.MainViewRegionName}" DockPanel.Dock="Top" />
+
+            </DockPanel>
+        </Border>
+
+    </Grid>
+</Window>

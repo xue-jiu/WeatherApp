@@ -1,0 +1,19 @@
+﻿<UserControl
+    x:Class="WeatherApp.Views.ShowGradeDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:WeatherApp.Views"
+    xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="800"
+    Height="400"
+    mc:Ignorable="d">
+    <Grid>
+        <lvc:CartesianChart Grid.Row="1" Series="{Binding SeriesCollection}">
+            <lvc:CartesianChart.AxisY>
+                <lvc:Axis Title="成绩"  MaxValue="100" MinValue="0"/>
+            </lvc:CartesianChart.AxisY>
+        </lvc:CartesianChart>
+    </Grid>
+</UserControl>

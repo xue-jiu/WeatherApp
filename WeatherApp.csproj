@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>WeatherApp</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Dictionarys\grass.png" />
+    <None Remove="Fonts\iconfont.ttf" />
+    <None Remove="Images\clock.png" />
+    <None Remove="Images\computer.png" />
+    <None Remove="Images\introduce.png" />
+    <None Remove="Images\run.png" />
+    <None Remove="Images\weather.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.5.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\grass.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\iconfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\clock.png" />
+    <Resource Include="Images\computer.png" />
+    <Resource Include="Images\introduce.png" />
+    <Resource Include="Images\run.png" />
+    <Resource Include="Images\weather.png" />
+  </ItemGroup>
+</Project>
